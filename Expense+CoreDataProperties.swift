@@ -41,6 +41,7 @@ extension Expense {
         case income
     }
 
+    @NSManaged public var id: UUID
     @NSManaged public var name: String?
     @NSManaged public var notes: String?
     @NSManaged public var datetime: Date?
