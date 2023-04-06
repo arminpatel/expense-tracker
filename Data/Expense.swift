@@ -25,6 +25,16 @@ import Foundation
             case .groceries: return "Groceries"
         }
     }
+    func imageName() -> String {
+        switch self {
+            case .noCategory: return "square.3.layers.3d.top.filled"
+            case .travel: return "car.circle.fill"
+            case .foods: return "fork.knife.circle.fill"
+            case .entertainment: return "film.circle.fill"
+            case .shopping: return "bag.circle.fill"
+            case .groceries: return "carrot.fill"
+        }
+    }
 }
 
 @objc public enum TypeOfExpense: Int16, RawRepresentable, CaseIterable {

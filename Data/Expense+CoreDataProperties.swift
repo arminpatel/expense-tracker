@@ -24,7 +24,15 @@ extension Expense {
     @NSManaged public var amount: Double
     @NSManaged public var category: Category
     @NSManaged public var type: TypeOfExpense
-
+    
+    public var displayAmount: String {
+        if(type == .income) {
+            return "+\(amount)"
+        }
+        else {
+            return "\(amount)"
+        }
+    }
 }
 
 extension Expense : Identifiable {

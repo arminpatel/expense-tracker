@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AddExpenseView: View {
-    let dataController = DataController()
     @Environment(\.managedObjectContext) var moc
     @State private var name: String = ""
     @State private var amount: Double = 0.0
@@ -52,7 +51,7 @@ struct AddExpenseView: View {
                 }
                 
                 Button {
-                    if(dataController.save(name: name, amount: amount, date: date, category: category, type: type, notes: notes, context: moc)) {
+                    if(DataController().save(name: name, amount: amount, date: date, category: category, type: type, notes: notes, context: moc)) {
                         dismiss()
                     }
                 } label: {

@@ -21,14 +21,16 @@ class DataController: ObservableObject {
     
     func save(name: String, amount: Double, date: Date, category: Category, type: TypeOfExpense, notes: String, context: NSManagedObjectContext) -> Bool {
         let expense = Expense(context: context)
+        expense.id = UUID()
         expense.name = name
-        expense.amount = amount
+        expense.amount = type == .expense ? -amount : amount
         expense.date = date
         expense.category = category
         expense.type = type
         expense.notes = notes
         
-        if (try? container.viewContext.save()) != nil {
+        if (try? context.save()) != nil {
+            print("saved")
             return true
         }
         return false
